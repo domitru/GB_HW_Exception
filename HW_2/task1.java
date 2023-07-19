@@ -10,12 +10,13 @@ public class task1 {
     public static void inputFloat (){
         System.out.println("Введите дробное число: ");
         float number;
-        Scanner scanner = new Scanner(System.in);
-        try {
-            number = scanner.nextFloat();
-            System.out.println(number);
-        } catch (InputMismatchException e){
-            inputFloat();
+        try (Scanner scanner = new Scanner(System.in)) {
+            try {
+                number = scanner.nextFloat();
+                System.out.println(number);
+            } catch (InputMismatchException e){
+                inputFloat();
+            }
         }
     }
 }

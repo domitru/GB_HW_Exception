@@ -6,9 +6,10 @@ public class task4 {
     }
 
     public static void doNotEnterAnEmptyLine() {
-        Scanner scanner = new Scanner(System.in);
-        String stringLine = scanner.nextLine();
-        if (stringLine.isEmpty()) throw new IllegalArgumentException("Строка пустая!");
-        else System.out.println(stringLine);
+        try (Scanner scanner = new Scanner(System.in)) {
+            String stringLine = scanner.nextLine();
+            if (stringLine.isEmpty()) throw new IllegalArgumentException("Строка пустая!");
+            else System.out.println(stringLine);
+        }
     }
 }
